@@ -41,10 +41,6 @@ namespace ShiversUtils
 
             Utilla.Events.GameInitialized += OnGameInitialized;
         }
-        void GetPJLNotifJoin()
-        {
-            
-        }
 
         void OnEnable()
         {
