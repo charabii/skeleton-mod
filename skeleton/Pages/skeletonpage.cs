@@ -35,65 +35,9 @@ namespace BananaOS.Pages
             //BackgroundSkinConfigCheck = false;
         }
 
-        /*static void lineChanger(string newText, string fileName, int line_to_edit)
-        {
-            string[] arrLine = File.ReadAllLines(fileName);
-            BananaNotifications.DisplayNotification($"{fileName}", Color.yellow, Color.white, 1);
-            arrLine[line_to_edit - 1] = newText;
-            File.WriteAllLines(fileName, arrLine);
-        }*/
-
-        /*public void FixedUpdate()
-        {
-            String line;
-            if (!BackgroundSkinConfigCheck)
-            {
-                try
-                {
-                    //Pass the file path and file name to the StreamReader constructor
-                    StreamReader sr = new StreamReader("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Gorilla Tag\\BepInEx\\config\\BananaOS.cfg");
-                    //Read the first line of text
-                    line = sr.ReadLine();
-                    //Continue to read until you reach end of file
-                    while (line != null && !BackgroundSkinConfigCheck)
-                    {
-                        if (line.Contains("Background Skin = "))
-                        {
-                            OriginalBackgroundSkinConfig = line;
-                            BackgroundSkinConfigCheck = true;
-                            BananaNotifications.DisplayNotification("background skin config check" + $"{OriginalBackgroundSkinConfig}", Color.yellow, Color.white, 1);
-                        }
-                        else
-                        {
-                            //Read the next line
-                            line = sr.ReadLine();
-                        }
-                    }
-                    //close the file
-                    sr.Close();
-                    Console.ReadLine();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Exception: " + e.Message);
-                }
-                finally
-                {
-                    Console.WriteLine("Executing finally block.");
-                }
-            }
-        }*/
-
-        
-
         //What you return is what is drawn to the watch screen the screen will be updated everytime you press a button
         public override string OnGetScreenContent()
         {
-            /*if (BackgroundSkinConfigCheck)
-            {
-                lineChanger("Background Skin = ShiversUtils", "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Gorilla Tag\\BepInEx\\config\\BananaOS.cfg", 80);
-                BananaNotifications.DisplayNotification("set background", Color.yellow, Color.white, 1);
-            }*/
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("<color=white>==</color> Skeleton <color=white>==</color>");
             if (Skele)
@@ -120,7 +64,6 @@ namespace BananaOS.Pages
                     break;
 
                 case WatchButtonType.Right:
-                    //BaSkPa.ApplySkin("ShiversUtils");
                     break;
 
                 case WatchButtonType.Left:
@@ -149,12 +92,6 @@ namespace BananaOS.Pages
 
                 //It is recommended that you keep this unless you're nesting pages if so you should use the SwitchToPage method
                 case WatchButtonType.Back:
-                    /*if (BackgroundSkinConfigCheck)
-                    {
-                        lineChanger($"{OriginalBackgroundSkinConfig}", "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Gorilla Tag\\BepInEx\\config\\BananaOS.cfg", 80);
-                        BananaNotifications.DisplayNotification("got rid of background", Color.yellow, Color.white, 1);
-                    }*/
-                    //BaSkPa.ApplySkin("Default");
                     ReturnToMainMenu();
                     break;
             }
